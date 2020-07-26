@@ -69,7 +69,7 @@ const TaskItem = ({
                     >
                         {!task.completed && (
                             <small className="task-item__date">
-                                Added the {dayjs(task.createAt).format('DD MMM')}
+                                Added on {dayjs(task.createAt).format('DD MMM')}
                             </small>
                         )}
                     </div>
