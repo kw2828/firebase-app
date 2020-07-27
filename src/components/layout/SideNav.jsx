@@ -18,7 +18,7 @@ const SideNav = ({ signoutUser, disconectGuestUser, type, closeNav, style, guest
     const items = [
         {
             id: 1,
-            title: 'My Timer',
+            title: 'My timer',
             page: '/',
             icon: <Timer className="sidenav__link--icon" />
         },
@@ -33,7 +33,19 @@ const SideNav = ({ signoutUser, disconectGuestUser, type, closeNav, style, guest
             title: 'My stats',
             page: '/statistics',
             icon: <Statistics className="sidenav__link--icon" />
-        }
+        },
+        {
+            id: 4,
+            title: 'My goals',
+            page: '/mytodos',
+            icon: <Statistics className="sidenav__link--icon" />
+        },
+        {
+            id: 5,
+            title: 'My breaks',
+            page: '/statistics',
+            icon: <Statistics className="sidenav__link--icon" />
+        },
     ];
     const disconect = () => {
         if (guestUser) {
