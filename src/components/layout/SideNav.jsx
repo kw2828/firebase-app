@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { animated as a } from 'react-spring';
 
 // Assets / services
-import { Timer, Tasks, Statistics, Logout } from '../../assets/svg/icons';
+import { Timer, Tasks, Statistics, Journal, Goals, Logout } from '../../assets/svg/icons';
 
 // Store
 import { connect } from 'react-redux';
@@ -30,10 +30,22 @@ const SideNav = ({ signoutUser, disconectGuestUser, type, closeNav, style, guest
         },
         {
             id: 3,
+            title: 'My goals',
+            page: '/mygoals',
+            icon: <Goals className="sidenav__link--icon" />
+        },
+        {
+            id: 4,
+            title: 'My journal',
+            page: '/myjournal',
+            icon: <Journal className="sidenav__link--icon" />
+        },
+        {
+            id: 5,
             title: 'My stats',
             page: '/statistics',
             icon: <Statistics className="sidenav__link--icon" />
-        }
+        },
     ];
     const disconect = () => {
         if (guestUser) {

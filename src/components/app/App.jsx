@@ -19,6 +19,8 @@ import FallbackLoader from '../layout/FallbackLoader';
 
 import statistics from '../../pages/Statistics';
 import myTodos from '../../pages/MyTodos';
+import myGoals from '../../pages/MyGoals';
+import myJournals from '../../pages/MyJournal'
 
 // Pages (lazy)
 const dashboard = lazy(() => import('../../pages/Dashboard'));
@@ -38,7 +40,10 @@ const App = ({ isLoggedIn, isLoaded, toggleNav, isNavOpen, guest }) => {
                         <Switch>
                             <Route exact path="/" component={dashboard} />
                             <Route exact path="/mytodos" component={myTodos} />
+                            <Route exact path="/mygoals" component={myGoals} />
+                            <Route exact path="/myjournal" component={myGoals} />
                             <Route exact path="/statistics" component={statistics} />
+                            
                             <Redirect to="/" />
                         </Switch>
                     </Suspense>
