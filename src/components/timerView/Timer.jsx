@@ -43,8 +43,8 @@ const Timer = ({
     const [isCompleted, setIsCompleted] = useState(false);
     const [taskSelected, setTaskSelected] = useState(false);
 
-    const [breakVal, setBreakVal] = useState(5);
-    const [sessionVal, setSessionVal] = useState(25);
+    const [breakVal, setBreakVal] = useState(10);
+    const [sessionVal, setSessionVal] = useState(50);
     const [mode, setMode] = useState('session');
     const [taskInfo, setTaskInfo] = useState({ id: null, title: null });
     const [timeSpend, setTimeSpend] = useState(0);
