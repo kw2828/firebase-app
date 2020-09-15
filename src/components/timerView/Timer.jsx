@@ -150,9 +150,12 @@ const Timer = ({
                                 .doc(userId)
                                 .get();
                             const task = res.data().task;
+                            console.log("task.timeSpent: " + task.timeSpent)
+
                             task.forEach(task => {
                                 if (task.id === taskInfo.id) {
-                                    task.timeSpent += timeSpend;
+                                    task.timeSpent += 500;
+                                    console.log("task.timeSpent: " + task.timeSpent)
                                 }
                             });
                             await firestore
