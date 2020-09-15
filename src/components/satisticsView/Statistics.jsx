@@ -34,7 +34,7 @@ const Statistics = ({ dataBase, localData, guestUser, userId }) => {
 
         const calcAverageTime = val => {
             return val
-                .map(task => task.timeSpend)
+                .map(task => task.timeSpent)
                 .reduce((acc, curr) => {
                     return Math.floor((acc + curr) / data.length);
                 });
