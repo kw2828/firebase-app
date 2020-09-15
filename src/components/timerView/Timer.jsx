@@ -55,7 +55,7 @@ const Timer = ({
     const firestore = useFirestore();
 
     const initialTimerSettings = useCallback(() => {
-        setIsCounting(true);
+        setIsCounting(false);
         setMode('session');
         setTime(sessionVal * 60 * 1000);
         setIsReseting(false);
