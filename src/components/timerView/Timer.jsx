@@ -55,7 +55,7 @@ const Timer = ({
     const firestore = useFirestore();
 
     const initialTimerSettings = useCallback(() => {
-        setIsCounting(false);
+        setIsCounting(true);
         setMode('session');
         setTime(sessionVal * 60 * 1000);
         setIsReseting(false);
@@ -70,6 +70,7 @@ const Timer = ({
     const onTick = () => {
         setTime(time => time - 1000);
         setTimeSpend(time => time + 1);
+        console.log("task timeSpend: " + task.timeSpend)
         saveTimeSpent_local(taskInfo.id);
     };
 
@@ -150,11 +151,9 @@ const Timer = ({
                                 .doc(userId)
                                 .get();
                             const task = res.data().task;
-                            console.log("task.timeSpent: " + task.timeSpent)
-
                             task.forEach(task => {
                                 if (task.id === taskInfo.id) {
-                                    task.timeSpent += 500;
+                                    task.timeSpent += timeSpend;
                                     console.log("task.timeSpent: " + task.timeSpent)
                                 }
                             });
