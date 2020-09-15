@@ -218,6 +218,11 @@ export const markTaskComplete = id => async (dispatch, getState, { getFirestore 
                 task.completed = true;
                 task.selected = false;
             }
+            if (task.timeSpent != null) {
+                task.timeSpent = task.timeSpent
+            } else {
+                task.timeSpent = 500
+            }
         });
 
         await firestore
