@@ -49,7 +49,7 @@ const StatisticsTime = ({ dataBase, userId, localData, guestUser }) => {
                                       <div className="item__text--name">{task.title}</div>
                                       <div className="item__text--time">
                                           Time spent :{' '}
-                                          {moment(task.timeSpent * 1000).format('mm:ss')}s
+                                          {moment(task.timeSpend * 1000).format('mm:ss')}s
                                       </div>
                                   </div>
                               </div>
