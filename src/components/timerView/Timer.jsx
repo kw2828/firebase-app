@@ -70,7 +70,6 @@ const Timer = ({
     const onTick = () => {
         setTime(time => time - 1000);
         setTimeSpend(time => time + 1);
-        console.log("task timeSpend: " + task.timeSpend)
         saveTimeSpent_local(taskInfo.id);
     };
 
