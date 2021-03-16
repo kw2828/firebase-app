@@ -4,12 +4,13 @@ import 'firebase/auth';
 
 const config = {
     apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
-    authDomain: 'workpal-ef587.firebaseapp.com',
-    databaseURL: 'https://workpal-ef587.firebaseio.com',
-    projectId: 'workpal-ef587',
-    storageBucket: 'workpal-ef587.appspot.com',
-    messagingSenderId: '57762119337',
-    appId: '1:57762119337:web:e5deca3059c86f440b73b8'
+    authDomain: 'workpal-mrdlnb.firebaseapp.com',
+    databaseURL: 'https://workpal-mrdlnb-default-rtdb.firebaseio.com',
+    projectId: 'workpal-mrdlnb',
+    storageBucket: 'workpal-mrdlnb.appspot.com',
+    messagingSenderId: '240905824340',
+    appId: '1:240905824340:web:d30c306cc751b3ecff65c1',
+    measurementId: 'G-WE5NKWBEFR'
 };
 
 firebase.initializeApp(config);

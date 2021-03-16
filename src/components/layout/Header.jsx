@@ -15,25 +15,13 @@ const Header = ({ onClick, isNavOpen }) => {
         <Lockedlayout className="header">
             <div className="header__left">
                 <Link to="/" className="header__left--logo">
-                    Workpal
+                    Zebra
                 </Link>
                 <Menu
-                    color={
-                        width > 600 || isNavOpen ? 'var(--color-white)' : 'var(--color-black)'
-                    }
+                    color={width > 600 || isNavOpen ? 'var(--color-white)' : 'var(--color-black)'}
                     className="header__left--icon"
                     onClick={onClick}
                 />
-            </div>
-            <div className="header__right">
-                <a
-                    className="header__right--gh-link"
-                    href="https://github.com/JeremieNallet/25-react-redux-firebase-w-auth"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                >
-                    GitHub
-                </a>
             </div>
         </Lockedlayout>
     );
