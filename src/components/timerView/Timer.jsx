@@ -7,6 +7,7 @@ import TimerSettings from './timerSettings';
 import TimerHeader from './TimerHeader';
 import TimerModal from './TimerModal';
 import TimerCountDown from './TimerCountDown';
+import PopUp from './TimerVideo';
 
 // Store
 import { compose } from 'redux';
@@ -24,6 +25,7 @@ import { timerHasStarted, timerHasStopped } from '../../store/actions/timerActio
 import useInterval from '../../services/hooks/useInterval';
 import { useFirestore } from 'react-redux-firebase';
 import { useHistory } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 
 const Timer = ({
     dataBase,
@@ -42,9 +44,10 @@ const Timer = ({
     const [isCounting, setIsCounting] = useState(false);
     const [isCompleted, setIsCompleted] = useState(false);
     const [taskSelected, setTaskSelected] = useState(false);
+    const [hasSeen, setHasSeen] = useState(false);
 
     const [breakVal, setBreakVal] = useState(10);
-    const [sessionVal, setSessionVal] = useState(50);
+    const [sessionVal, setSessionVal] = useState(0.1);
     const [mode, setMode] = useState('session');
     const [taskInfo, setTaskInfo] = useState({ id: null, title: null });
     const [timeSpend, setTimeSpend] = useState(0);
@@ -71,6 +74,10 @@ const Timer = ({
         setTime(time => time - 1000);
         setTimeSpend(time => time + 1);
         saveTimeSpent_local(taskInfo.id);
+    };
+
+    const toggleVideo = () => {
+        setHasSeen(!hasSeen);
     };
 
     const displayTaskTitleOnTimer = data => {
@@ -116,14 +123,15 @@ const Timer = ({
         if (time === 0 && mode === 'session') {
             setMode('break');
             setTime(breakVal * 60 * 1000);
+            toggleVideo();
             setIsCounting(false);
-            audio.play();
-            audio.loop = true;
+            // audio.play();
+            // audio.loop = true;
         } else if (time === 0 && mode === 'break') {
             setMode('session');
             setTime(sessionVal * 60 * 1000);
-            audio.play();
-            audio.loop = false;
+            // audio.play();
+            // audio.loop = false;
         }
     }, [time, breakVal, sessionVal, mode, timerHasStarted, audio]);
 
@@ -153,7 +161,7 @@ const Timer = ({
                             task.forEach(task => {
                                 if (task.id === taskInfo.id) {
                                     task.timeSpent += timeSpend;
-                                    console.log("task.timeSpent: " + task.timeSpent)
+                                    console.log('task.timeSpent: ' + task.timeSpent);
                                 }
                             });
                             await firestore
@@ -183,6 +191,8 @@ const Timer = ({
                             state={[breakVal]}
                         />
                     )}
+                    {hasSeen ? <PopUp toggle={toggleVideo} /> : null}
+
                     {taskSelected && (
                         <>
                             <TimerCountDown options={[mode, time]} isCounting={isCounting} />

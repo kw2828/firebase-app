@@ -13,7 +13,7 @@ const config = {
     measurementId: 'G-WE5NKWBEFR'
 };
 
-firebase.initializeApp(config);
-firebase.firestore();
+firebase.default.initializeApp(config);
+firebase.default.firestore();
 
 export default firebase;
